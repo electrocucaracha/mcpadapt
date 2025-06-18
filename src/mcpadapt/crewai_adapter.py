@@ -61,6 +61,7 @@ class CrewAIAdapter(ToolAdapter):
             name: str = mcp_tool.name
             description: str = mcp_tool.description or ""
             args_schema: Type[BaseModel] = ToolInput
+            result_as_answer: bool = True # The tool should be the final agent answer.
 
             def _run(self, *args: Any, **kwargs: Any) -> Any:
                 # Filter out None values if the schema doesn't allow null
